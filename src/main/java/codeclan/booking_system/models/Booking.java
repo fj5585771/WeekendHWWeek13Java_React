@@ -27,12 +27,8 @@ public class Booking {
         this.date = date;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Booking(){
 
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Course getCourse() {
@@ -58,4 +54,14 @@ public class Booking {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
 }
