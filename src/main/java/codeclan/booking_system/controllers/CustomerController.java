@@ -12,31 +12,31 @@ import java.util.Optional;
 
 @RestController
 public class CustomerController {
-
-    @Autowired
-    CustomerRepository customerRepository;
-
-    @GetMapping("/customers")
-    public ResponseEntity<List<Customer>> getAllCustomers(
-            @RequestParam(name="course", required = false) String courseName
-
-    ){
-        if (courseName != null){
-            return new ResponseEntity<>(customerRepository.findByCourseNameIgnoreCase(courseName), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
-    }
-
-    @GetMapping(value="/customers/{id}")
-    public ResponseEntity<Optional<Customer>> getDistillery(@PathVariable Long id){
-        return new ResponseEntity<>(customerRepository.findById(id), HttpStatus.OK);
-
-    }
-
-    @PostMapping(value="/customers")
-    public ResponseEntity<Customer> createShip(@RequestBody Customer customer){
-        customerRepository.save(customer);
-        return new ResponseEntity<>(customer, HttpStatus.CREATED);
-
-    }
+//
+//    @Autowired
+//    CustomerRepository customerRepository;
+//
+//    @GetMapping("/customers")
+//    public ResponseEntity<List<Customer>> getAllCustomers(
+//            @RequestParam(name="course", required = false) String courseName
+//
+//    ){
+//        if (courseName != null){
+//            return new ResponseEntity<>(customerRepository.findByCourseNameIgnoreCase(courseName), HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
+//    }
+//
+//    @GetMapping(value="/customers/{id}")
+//    public ResponseEntity<Optional<Customer>> getDistillery(@PathVariable Long id){
+//        return new ResponseEntity<>(customerRepository.findById(id), HttpStatus.OK);
+//
+//    }
+//
+//    @PostMapping(value="/customers")
+//    public ResponseEntity<Customer> createShip(@RequestBody Customer customer){
+//        customerRepository.save(customer);
+//        return new ResponseEntity<>(customer, HttpStatus.CREATED);
+//
+//    }
 }

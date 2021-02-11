@@ -18,11 +18,11 @@ public class CourseController {
     CourseRepository courseRepository;
 
 
-    @GetMapping
+    @GetMapping(value = "/courses")
     public ResponseEntity<List<Course>> getCourses(
-            @RequestParam(name = "rating") Integer rating,
-            @RequestParam(name = "customerName") String customerName,
-            @RequestParam(name = "customerId") Long customerId
+            @RequestParam(name = "rating", required = false) Integer rating,
+            @RequestParam(name = "customerName", required = false) String customerName,
+            @RequestParam(name = "customerId", required = false) Long customerId
             )
     {
         if (customerId != null && rating != null) {
@@ -49,19 +49,19 @@ public class CourseController {
     }
 
     private ResponseEntity<List<Course>> courseByCustomerId(Long id) {
-        return new ResponseEntity<>(courseRepository.findByCustomerId(id), HttpStatus.OK);
+        return new ResponseEntity<>(courseRepository.findByBookingsCustomerId(id), HttpStatus.OK);
     }
 
     private ResponseEntity<List<Course>> courseByCustomerName(String name) {
-        return new ResponseEntity<>(courseRepository.findByCustomerName(name), HttpStatus.OK);
+        return new ResponseEntity<>(courseRepository.findByBookingsCustomerName(name), HttpStatus.OK);
     }
 
     private ResponseEntity<List<Course>> courseByRatingAndCustomerId(Integer rating, Long id) {
-        return new ResponseEntity<>(courseRepository.findByRatingAndCustomerId(rating, id), HttpStatus.OK);
+        return new ResponseEntity<>(courseRepository.findByRatingAndBookingsCustomerId(rating, id), HttpStatus.OK);
     }
 
     private ResponseEntity<List<Course>> courseByRatingAndCustomerName(Integer rating, String name) {
-        return new ResponseEntity<>(courseRepository.findByRatingAndCustomerName(rating, name), HttpStatus.OK);
+        return new ResponseEntity<>(courseRepository.findByRatingAndBookingsCustomerName(rating, name), HttpStatus.OK);
     }
 
 

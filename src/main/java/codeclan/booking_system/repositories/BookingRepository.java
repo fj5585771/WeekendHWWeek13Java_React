@@ -13,4 +13,5 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     List<Booking> getBookingsByDate(String date);
     List<Booking> getBookingByCourseName(Course course);
     List<Booking> getBookingByCustomer(Customer customer);
+
 }

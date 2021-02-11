@@ -64,7 +64,4 @@ public class Course {
         this.rating = rating;
     }
 
-    public ArrayList<Booking> getBookings() {
-        return (ArrayList<Booking>) this.bookings;
-    }
 }

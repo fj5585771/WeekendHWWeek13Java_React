@@ -28,7 +28,6 @@ public class Booking {
     }
 
     public Booking(){
-
     }
 
     public Course getCourse() {

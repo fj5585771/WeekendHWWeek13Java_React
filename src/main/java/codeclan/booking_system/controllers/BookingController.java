@@ -44,7 +44,4 @@ public class BookingController {
 //        return new ResponseEntity<>(bookingRepository.save(booking1), HttpStatus.CREATED);
 //    }
 
-
-
-
 }
