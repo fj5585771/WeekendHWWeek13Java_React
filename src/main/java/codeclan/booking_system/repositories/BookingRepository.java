@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
-    List<Booking> getBookingsByDate(String date);
+//    List<Booking> getBookingsByDate(String date);
 }

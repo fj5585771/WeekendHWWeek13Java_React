@@ -14,20 +14,20 @@ import java.util.Optional;
 
 @RestController
 public class BookingController {
-
-    @Autowired
-    BookingRepository bookingRepository;
-
-    @GetMapping("/bookings")
-    public ResponseEntity <List<Booking>> getAllBookings(){
-        return new ResponseEntity<>bookingRepository.findAll(), HttpStatus.OK);
-    }
-
-    @GetMapping("/bookings/{id}")
-    public ResponseEntity<Optional<Booking>> getBookingById(@PathVariable Long id){
-        return new ResponseEntity<>(bookingRepository.findById(id), HttpStatus.OK);
-    }
-
+//
+//    @Autowired
+//    BookingRepository bookingRepository;
+//
+//    @GetMapping("/bookings")
+//    public ResponseEntity <List<Booking>> getAllBookings(){
+//        return new ResponseEntity<>bookingRepository.findAll(), HttpStatus.OK);
+//    }
+//
+//    @GetMapping("/bookings/{id}")
+//    public ResponseEntity<Optional<Booking>> getBookingById(@PathVariable Long id){
+//        return new ResponseEntity<>(bookingRepository.findById(id), HttpStatus.OK);
+//    }
+//
 
 
 

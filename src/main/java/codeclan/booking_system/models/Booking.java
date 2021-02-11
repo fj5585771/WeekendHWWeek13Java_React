@@ -27,6 +27,8 @@ public class Booking {
         this.date = date;
     }
 
+    public Booking() {}
+
     public Long getId() {
         return id;
     }
