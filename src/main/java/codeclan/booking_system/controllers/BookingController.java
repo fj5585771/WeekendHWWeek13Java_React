@@ -22,7 +22,20 @@ public class BookingController {
 //    GET /bookings?course=IntroJava
 
     @GetMapping("/bookings")
-    public ResponseEntity <List<Booking>> getAllBookings(){
+    public ResponseEntity <List<Booking>> getAllBookings(
+            @RequestParam(name = "courseName", required=false) String courseName,
+            @RequestParam(name="date", required = false) String date,
+            @RequestParam(name="customerName", required=false) String customerName
+                                                         ){
+        if (customerName != null) {
+            return new ResponseEntity<>(bookingRepository.findByCustomerName(customerName), HttpStatus.OK);
+        }
+        if (date != null){
+            return new ResponseEntity<>(bookingRepository.findByDate(date), HttpStatus.OK);
+        }
+        if (courseName != null){
+            return new ResponseEntity<>(bookingRepository.findByCourseName(courseName), HttpStatus.OK);
+        }
         return new ResponseEntity<>(bookingRepository.findAll(), HttpStatus.OK);
     }
 
@@ -31,10 +44,13 @@ public class BookingController {
         return new ResponseEntity<>(bookingRepository.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/bookings/{date}")
-    public ResponseEntity <List<Booking>> getBookingsByDate(@PathVariable String date){
-        return new ResponseEntity<>(bookingRepository.getBookingsByDate(date), HttpStatus.OK);
-    }
+//    @GetMapping("/bookings/{date}")
+//    public ResponseEntity <List<Booking>> getBookingsByDate(@PathVariable String date){
+//        return new ResponseEntity<>(bookingRepository.findByDate(date), HttpStatus.OK);
+//    }
+
+
+
 
 
 

@@ -22,14 +22,15 @@ public class BookingTest {
 
     @Before
     public void before(){
+        course1 = new Course("Intro Java", "Edinburgh", 5);
         booking1 = new Booking(course1, customer1, "02/02/21");
         bookingRepository.save(booking1);
     }
 
     @Test
     public void getCourseWithBooking() {
-        List<Booking> bookingCourse = bookingRepository.getBookingByCourseName(course1);
-        assertEquals("Intro Java", bookingCourse.get(0).getCourse());
+        List<Booking> bookingCourse = bookingRepository.findByCourseName("Intro Java");
+        assertEquals("Intro Java", bookingCourse.get(0).getCourse().getName());
     }
 
 //    @Test
