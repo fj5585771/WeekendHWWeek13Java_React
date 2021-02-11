@@ -1,4 +1,16 @@
 package codeclan.booking_system.repositories;
 
-public class CourseRepository {
+import codeclan.booking_system.models.Course;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface CourseRepository extends JpaRepository<Course, Long> {
+    List<Course> findByRating(int rating);
+    List<Course> findByCustomerName(String name);
+    List<Course> findByCustomerId(Long id);
+    List<Course> findByRatingAndCustomerId(int rating, Long id);
+    List<Course> findByRatingAndCustomerName(int rating, String name);
 }
