@@ -1,5 +1,6 @@
 package codeclan.booking_system.models;
 
+import codeclan.booking_system.repositories.CourseRepository;
 import codeclan.booking_system.repositories.CustomerRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,23 @@ public class CustomerTest {
     @Autowired
     CustomerRepository customerRepository;
 
+    @Autowired
+    CourseRepository courseRepository;
+
     @Test
     public void contextLoads(){
 
     }
 
-//    @Test
-//    List<Customer> foundCourses = customerRepository.findByCourseName("");
-//    assertEquals("", foundCourses.get(0).getName());
+    @Test
+    public void canFindCustomersInGivenTownForGivenCourse() {
+//        Customer customer1 = new Customer("Barry", 35);
+//        Course course1 = new Course("Intro Java", "Edinburgh", 4);
+//        Booking booking1 = new Booking(course1, customer1, "03/03/20");
+
+        List<Customer> foundCustomersOnCourseInGivenTown = customerRepository.findByBookingsCourseTownAndBookingsCourseName("Edinburgh", "Java");
+        assertEquals("Barry", foundCustomersOnCourseInGivenTown.get(0).getName());
+
+    } // Barry is on "Java" course that is in Edinburgh
 
 }
