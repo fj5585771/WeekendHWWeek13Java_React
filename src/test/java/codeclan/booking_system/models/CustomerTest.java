@@ -35,4 +35,11 @@ public class CustomerTest {
 
     } // Barry is on "Java" course that is in Edinburgh
 
+    @Test
+    public void canFindCustomersInGivenTownForGivenCourseOverCertainAge(){
+        List <Customer> foundCustomerWithAgeOnCourseInGivenTown = customerRepository.findByAgeGreaterThanAndBookingsCourseTownAndBookingsCourseName(24, "Highlands", "CSS");
+        assertEquals("Wendy", foundCustomerWithAgeOnCourseInGivenTown.get(0).getName());
+
+    }
+
 }
